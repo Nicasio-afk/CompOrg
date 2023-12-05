@@ -22,4 +22,15 @@ main:
   syscall
   move $t0, $v0 #save the input to temporary variable $t0
 
+  #check if N is legal
+  beq $t0, $zero, if_illegal #checks if N is equal to 0
+  li $t1, 25 #loads 25 in temporary variable t1
+  blt $t0, $t1, if_illegal # checks if N is less than 25
+  blt $t0, $zero, if_illegal #checks if N is less than 0
+
+  #if N is legal, start the Fib sequence
+  li $v0, 4
+  la $a0, fibonacci_seq
+  syscall
+
 
