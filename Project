@@ -42,7 +42,7 @@ main:
   move $a0, $t2  
   syscall
 
-  li $v0, 11  #print a space after first value
+  li $v0, 11  #print a space after the first value
   li $a0, 32
   syscall
 
@@ -52,6 +52,19 @@ main:
 
   li $v0, 11 #print space after second value
   li $a0, 32
+  syscall
+
+  #calculate Fibonacci sequence
+  sub $t0, $t0, 2
+  j fibonacci_loop
+
+fibonacci_loop:
+  #calculate the fibonacci number
+  add $t4, $t2, $t3
+
+  #print the fibonacci number
+  li $v0, 1
+  move $a0, $t4
   syscall
 
 
