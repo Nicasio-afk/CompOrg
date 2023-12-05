@@ -33,4 +33,13 @@ main:
   la $a0, fibonacci_seq
   syscall
 
+  #start the fib sequence with 1 and 0
+  li $t2, 0
+  li $t3, 1
+
+  #print the first two numbers
+  li $v0, 1
+  move $a0, $t2  
+  syscall
+
 
