@@ -1,12 +1,25 @@
 .data 
 
 #prompt user to enter number N, N>=25
-prompt: .asciiz "Enter an integer that is greater than or equal to 25! \n"
+prompt: .asciiz "Enter a number that is greater than or equal to 25! \n"
 
 #error_message if N is 0, negative, or less than 25 and positive
 illegal_error: .asciiz "Illegal Number! \n"
 
 #Finonacci Message that starts the sequence
-fibonacci_seq: .asciiz "Fibonacci sequence: \n"
+fibonacci_seq: .asciiz "This is the Fibonacci sequence for your number: \n"
 
 .text
+main: 
+  #Print the prompt message 
+
+  li $v0, 4  #system call for printing string
+  la $a0, prompt  #loads the address and prints the prompt
+  syscall
+
+  #read input
+  li $v0, 5
+  syscall
+  move $t0, $v0 #save the input to temporary variable $t0
+
+
