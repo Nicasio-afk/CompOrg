@@ -67,4 +67,10 @@ fibonacci_loop:
   move $a0, $t4
   syscall
 
+  li $v0, 11 #print space
+  li $a0, 32
+  syscall 
 
+  #update values for the next iteration
+  move $t2, $t3
+  move $t3, $t4
