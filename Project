@@ -85,7 +85,7 @@ fibonacci_loop:
   li $v0, 10
   syscall
 
-  if_illegal:
+if_illegal:
   #runs if the number is illegal
   li $v0, 4
   la $a0, illegal_error
